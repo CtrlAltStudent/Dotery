@@ -1,0 +1,20 @@
+# Godot 4
+.godot/
+*.translation
+
+# Import cache (legacy name; harmless if absent)
+.import/
+
+# Builds / exports
+export_presets.cfg
+export.cfg
+builds/
+dist/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+.vscode/
+.idea/
