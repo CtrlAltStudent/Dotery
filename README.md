@@ -1,55 +1,53 @@
 # Dotery
 
+Early-stage **2D dungeon survival RPG** in a pixel art style. Repository: [CtrlAltStudent/Dotery](https://github.com/CtrlAltStudent/Dotery).
 
-Startowy projekt **2D dungeon survival RPG** w klimacie pixel art. Repo: [CtrlAltStudent/Dotery](https://github.com/CtrlAltStudent/Dotery).
+We are a small team: **gameplay and code** on one side, **assets and animation** on the other (international collaboration — README and code comments default to English so everyone can follow along).
 
-## Dlaczego Godot 4
+## Why Godot 4
 
-- Silny moduł **2D**, wygodne **sceny** i **sygnały** — dobry podział pracy: Ty (logika), znajomy (grafika w `assets/`).
-- **Bez licencji** dla engine’u, mały rozmiar, szybkie iteracje.
-- **Pixel-perfect**: w `project.godot` ustawione `canvas_items` + filtr tekstur **Nearest** oraz rozdzielczość bazowa **640×360** (skalowanie całkowite).
+- Strong **2D** tooling, **scenes**, and **signals** — a clean split of work: logic in `scripts/` and `scenes/`, art drops into `assets/`.
+- **No engine licensing fees**, small footprint, fast iteration.
+- **Pixel-friendly setup** in `project.godot`: `canvas_items` stretch, **Nearest** texture filter, base resolution **640×360**, integer scaling.
 
-## Wymagania
+## Requirements
 
-- [Godot 4.2+](https://godotengine.org/download) (zalecane 4.3 lub nowsze).
-- Otwórz w edytorze folder z `project.godot` jako projekt.
+- [Godot 4.2+](https://godotengine.org/download) (4.3 or newer recommended).
+- Open the folder that contains `project.godot` as a project in the editor.
 
-## Sterowanie (domyślne)
+## Default controls
 
-| Wejście | Akcja |
-|----------|--------|
-| **WASD** | Ruch |
-| **Spacja** | Dash |
-| **Mysz** | Kierunek celowania (obrót „pivota” broni + podgląd linii) |
-| **LPM** | `primary_fire` — na razie zarezerwowane pod atak |
-| **PPM** | `secondary_action` — zarezerwowane |
+| Input | Action |
+|--------|--------|
+| **WASD** | Move |
+| **Space** | Dash |
+| **Mouse** | Aim direction (weapon pivot rotation + aim preview line) |
+| **LMB** | `primary_fire` — reserved for attacks |
+| **RMB** | `secondary_action` — reserved |
 
-Mapa akcji jest dokładana przy starcie przez `core/input_bootstrap.gd` (autoload), żeby nie konfigurować ręcznie przy klonowaniu repozytorium.
+Input actions are registered at startup by `core/input_bootstrap.gd` (autoload) so clones work without manual Project Settings input mapping.
 
-## Struktura (na start)
+## Project layout
 
 ```
-core/           — autoloady i wspólna infrastruktura (np. input)
-scenes/         — sceny (.tscn), m.in. main, player
-scripts/        — logika (GDScript)
-assets/sprites/ — sprite’y od grafika
+core/           — autoloads and shared infrastructure (e.g. input)
+scenes/         — scenes (.tscn), including main and player
+scripts/        — gameplay logic (GDScript)
+assets/sprites/ — character and world sprites
 assets/tilesets/
 assets/audio/
 ```
 
-## Następne sensowne etapy
+## Sensible next steps
 
-1. **TileMap** + kolizje ścian (warstwa `world` już nazwana w ustawieniach fizyki).
-2. **Animacje** (`AnimatedSprite2D` / `AnimationPlayer`) zamiast prostokąta gracza.
-3. **Wróg + prosty stan zdrowia**, pętla fali / pokój po pokoju.
-4. **UI**: pasek życia, minimapa, ekwipunek.
-5. **Audio**: `AudioStreamPlayer2D` pod kroki i walkę.
+1. **TileMap** + wall collisions (physics layer `world` is already named in project settings).
+2. **Animation** (`AnimatedSprite2D` / `AnimationPlayer`) instead of the placeholder player shape.
+3. **Enemy + simple health**, wave loop / room-by-room flow.
+4. **UI**: health bar, minimap, inventory.
+5. **Audio**: `AudioStreamPlayer2D` for footsteps and combat.
 
-Masz już grupę `player` na postaci — AI mogą szukać `get_tree().get_first_node_in_group("player")`.
+The player is already in the `player` group — AI can use `get_tree().get_first_node_in_group("player")`.
 
-## Licencja
+## License
 
-Ustalcie w zespole (np. MIT) przed pierwszym publicznym releasem.
-
-Startup 2d game project
-
+Pick one as a team (e.g. MIT) before the first public release.
