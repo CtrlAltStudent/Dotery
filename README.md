@@ -1,5 +1,6 @@
 # Dotery
 
+
 Startowy projekt **2D dungeon survival RPG** w klimacie pixel art. Repo: [CtrlAltStudent/Dotery](https://github.com/CtrlAltStudent/Dotery).
 
 ## Dlaczego Godot 4
@@ -49,3 +50,6 @@ Masz już grupę `player` na postaci — AI mogą szukać `get_tree().get_first_
 ## Licencja
 
 Ustalcie w zespole (np. MIT) przed pierwszym publicznym releasem.
+
+Startup 2d game project
+
